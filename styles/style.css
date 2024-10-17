@@ -16,6 +16,10 @@ html {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 133px 30px;
 }
 
 h1,
@@ -37,18 +41,11 @@ ol {
   list-style: none;
 }
 
-.page {
-  display: flex;
-  justify-content: center;
-  padding: 133px 30px;
-}
-
 .content {
   display: flex;
   flex-direction: row;
   align-items: end;
   width: 1140px;
-  height: 534px;
   gap: 30px;
 }
 
@@ -62,12 +59,8 @@ ol {
   white-space: nowrap;
 }
 
-.search-form__fieldset{
+.search-form__fieldset {
   border: 0;
-}
-
-.result {
-  height: 456px;
 }
 
 .result__video-container {
@@ -82,7 +75,6 @@ ol {
   height: 100%;
   object-fit: cover;
   object-position: center;
-
 }
 
 .search-form {
@@ -110,6 +102,8 @@ ol {
   display: flex;
   width: fit-content;
   cursor: pointer;
+  align-items: center;
+  gap: 1.5px;
 }
 
 .search-form__label-text {
@@ -150,12 +144,13 @@ ol {
   border: none;
 }
 
-.search-form__label:has(:active) {
-  outline: 1px solid #fff;
-  outline-offset: 1px;
-  border: none;
-}
-
+.search-form__checkbox:active + .search-form__pseudo-checkbox::after {
+  content: '';
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+} 
 
 .search-form__pseudo-checkbox {
   display: flex;
@@ -184,16 +179,16 @@ ol {
   text-decoration: underline;
 }
 
-.search-form__submit-button:hover {
+.button:hover {
   text-decoration: underline;
 }
 
-.search-form__submit-button:active {
+.button:active {
   background-color: #545050;
   text-decoration: none;
 }
 
-.search-form__submit-button:focus-visible {
+.button:focus-visible {
   outline: solid #fff 1px;
   outline-offset: 1px;
 }
@@ -221,8 +216,8 @@ ol {
 }
 
 .content__details {
-  width: 399px;
-  min-height: 534px;
+  width: 100%;
+  height: 100%;
 }
 
 .content__list {
@@ -240,16 +235,10 @@ ol {
   line-height: 70.5px;
   margin-bottom: 25px;
   text-transform: uppercase;
-
 }
 
 .content__accent{
   color: #545050;
-}
-
-.content__card-link {
-  text-decoration: none;
-  color: #fff;
 }
 
 .content__video-card-description {
@@ -264,6 +253,10 @@ ol {
   line-height: 30px;
   text-transform: uppercase;
   margin-bottom: 6px;
+  max-width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .content__list-item:not(:last-child) {
@@ -281,6 +274,8 @@ ol {
   width: 194px;
   height: 103px;
   background-image: cover;
+  object-fit: cover;
+  object-position: center;
 }
 
 .content__video-card-description-container {
@@ -289,6 +284,12 @@ ol {
 
 .content__card-link {
   display: block;
+  text-decoration: none;
+  color: #fff;
+}
+
+.content__card-link:active {
+  background-color: #545050;
 }
 
 .content__card-link_current {
@@ -298,6 +299,7 @@ ol {
 .content__card-link:focus {
   outline: none;
 }
+
 .content__card-link:focus-visible {
   outline: solid #fff 1px;
   margin: 2px;
